@@ -1,307 +1,264 @@
-# 🔐 Gerenciando Políticas em Acessos Azure
+# ☁️ Gerenciando Políticas em Acessos Azure
 
-<p align="center">
-  <img src="images/arquitetura-governanca.svg" alt="Arquitetura de Governança e Políticas no Azure">
-</p>
+<div align="center">
 
-<p align="center">
-  <strong>Laboratório prático de Governança, Conformidade, Azure Policy e Controle de Acessos</strong>
-</p>
+![Microsoft Azure](https://img.shields.io/badge/Microsoft%20Azure-0089D6?style=for-the-badge\&logo=microsoftazure\&logoColor=white)
+![Azure Policy](https://img.shields.io/badge/Azure%20Policy-Governance-0078D4?style=for-the-badge\&logo=microsoftazure\&logoColor=white)
+![Azure RBAC](https://img.shields.io/badge/Azure%20RBAC-Identity%20%26%20Access-5C2D91?style=for-the-badge\&logo=microsoftazure\&logoColor=white)
+![Azure CLI](https://img.shields.io/badge/Azure%20CLI-Automation-0078D4?style=for-the-badge\&logo=azurecli\&logoColor=white)
+![AZ-900](https://img.shields.io/badge/AZ--900-Certification%20Track-00A4EF?style=for-the-badge)
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Microsoft%20Azure-AZ--900-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" alt="Microsoft Azure">
-  <img src="https://img.shields.io/badge/Azure%20Policy-Governance-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" alt="Azure Policy">
-  <img src="https://img.shields.io/badge/Azure%20RBAC-Access%20Control-5C2D91?style=for-the-badge&logo=microsoftazure&logoColor=white" alt="Azure RBAC">
-  <img src="https://img.shields.io/badge/Azure%20CLI-Automation-0078D4?style=for-the-badge&logo=azure&logoColor=white" alt="Azure CLI">
-</p>
+**Governança • Conformidade • Identidade • Controle de Acesso • Automação**
+
+Projeto prático desenvolvido durante a formação **Microsoft Azure – AZ-900 Certification**, explorando mecanismos de governança, políticas, conformidade e controle de acessos em ambientes Azure.
+
+</div>
 
 ---
 
 ## 📌 Sobre o Projeto
 
-Este projeto foi desenvolvido como parte da formação **Microsoft Azure – AZ-900 Certification**, com o objetivo de consolidar conhecimentos relacionados a **governança, conformidade, políticas e controle de acessos em ambientes Microsoft Azure**.
+O projeto **Gerenciando Políticas em Acessos Azure** foi desenvolvido com o objetivo de transformar conceitos de governança e segurança estudados no AZ-900 em um laboratório prático e documentado.
 
-A proposta é transformar os conceitos apresentados no laboratório da DIO em uma estrutura prática e documentada, demonstrando como diferentes mecanismos do Azure podem trabalhar em conjunto para manter ambientes organizados, seguros e alinhados às regras definidas por uma organização.
+A proposta combina diferentes mecanismos do ecossistema Azure para demonstrar como uma organização pode estabelecer padrões, controlar permissões e acompanhar a conformidade de seus recursos.
 
-O projeto utiliza como principais conceitos:
+### Principais tecnologias e conceitos
 
-* **Azure Policy**;
-* **Azure RBAC**;
-* **Microsoft Entra ID**;
-* **Compliance**;
-* **Policy Assignment**;
-* **Policy Definition**;
-* **Escopos de gerenciamento**;
-* **Tags**;
-* **Princípio do menor privilégio**;
-* **Governança e conformidade**;
-* **Azure CLI**;
-* **Automação de tarefas administrativas**.
-
----
-
-## 🎯 Objetivos
-
-### Objetivo geral
-
-Compreender e demonstrar como implementar mecanismos de governança e controle no Azure utilizando políticas e permissões baseadas em funções.
-
-### Objetivos específicos
-
-* Entender o funcionamento do **Azure Policy**;
-* Diferenciar **Azure Policy** de **Azure RBAC**;
-* Conhecer os principais escopos de gerenciamento;
-* Criar e atribuir políticas;
-* Avaliar conformidade dos recursos;
-* Utilizar políticas para padronização de ambientes;
-* Aplicar o princípio do menor privilégio;
-* Utilizar tags como mecanismo de organização;
-* Automatizar operações com Azure CLI;
-* Documentar evidências e resultados;
-* Aplicar boas práticas de governança e segurança.
+* **Azure Policy**
+* **Azure RBAC**
+* **Microsoft Entra ID**
+* **Policy Definition**
+* **Policy Assignment**
+* **Compliance**
+* **Management Groups**
+* **Subscriptions**
+* **Resource Groups**
+* **Tags**
+* **Azure CLI**
+* **Princípio do menor privilégio**
+* **Governança e conformidade**
 
 ---
 
-# ☁️ Conceitos Fundamentais
+# 🎯 Objetivos
 
-## Azure Policy
+Este laboratório foi estruturado para demonstrar a aplicação prática dos seguintes objetivos:
 
-O **Azure Policy** é um serviço de governança que permite definir regras para avaliar e controlar configurações de recursos Azure.
+### 01 · Governança
 
-Em vez de depender exclusivamente de verificações manuais, uma organização pode estabelecer políticas que avaliem automaticamente se os recursos estão de acordo com determinados padrões.
+Estabelecer regras capazes de orientar a configuração dos recursos Azure de acordo com padrões definidos.
 
-### Exemplos de utilização
+### 02 · Conformidade
 
-Uma política pode ser utilizada para:
+Avaliar recursos e identificar configurações que estejam fora dos requisitos estabelecidos.
 
-* exigir determinadas tags;
-* restringir determinadas configurações;
-* auditar recursos;
-* impedir determinadas implantações;
-* avaliar conformidade;
-* padronizar configurações;
-* apoiar requisitos de governança.
+### 03 · Controle de acesso
+
+Compreender como o **Azure RBAC** determina quais identidades podem executar determinadas ações em determinados escopos.
+
+### 04 · Segurança
+
+Aplicar conceitos como **menor privilégio**, separação de responsabilidades e controle de permissões.
+
+### 05 · Automação
+
+Utilizar **Azure CLI** para executar tarefas do laboratório de maneira reproduzível.
 
 ---
 
-## Policy Definition
-
-A **Policy Definition** representa a regra que será utilizada durante a avaliação.
-
-Ela define:
-
-* qual recurso será avaliado;
-* quais condições serão verificadas;
-* qual comportamento deverá ocorrer quando uma condição for atendida.
-
-Exemplo conceitual:
+# 🏛️ Arquitetura da Solução
 
 ```text
-Se um recurso não possuir a tag "Environment"
-        ↓
-considerar o recurso fora do padrão
-        ↓
-registrar ou bloquear conforme o efeito configurado
+                         ┌───────────────────────────────┐
+                         │      Microsoft Entra ID       │
+                         │       Identidades             │
+                         │       Autenticação            │
+                         └───────────────┬───────────────┘
+                                         │
+                                         ▼
+                         ┌───────────────────────────────┐
+                         │          Azure RBAC            │
+                         │                                │
+                         │       Quem pode fazer o quê?   │
+                         └───────────────┬───────────────┘
+                                         │
+                                         ▼
+┌───────────────────────────────────────────────────────────────────────┐
+│                       Azure Management Scope                          │
+│                                                                       │
+│  Management Group                                                     │
+│       │                                                               │
+│       └── Subscription                                                │
+│               │                                                       │
+│               └── Resource Group                                      │
+│                       │                                               │
+│                       └── Azure Resources                             │
+└───────────────────────────────┬───────────────────────────────────────┘
+                                │
+                                │ avaliação
+                                ▼
+                     ┌───────────────────────┐
+                     │      Azure Policy     │
+                     │                       │
+                     │ Policy Definition     │
+                     │ Policy Assignment     │
+                     │ Evaluation            │
+                     │ Compliance            │
+                     └───────────┬───────────┘
+                                 │
+                                 ▼
+                     ┌───────────────────────┐
+                     │ Governance & Security │
+                     │                       │
+                     │ Audit / Deny / Modify │
+                     │ Standards             │
+                     │ Compliance            │
+                     └───────────────────────┘
 ```
+
+A arquitetura demonstra uma separação importante:
+
+> **RBAC controla permissões. Azure Policy controla requisitos e conformidade.**
+
+Os mecanismos trabalham juntos, mas possuem responsabilidades diferentes.
 
 ---
 
-## Policy Assignment
+# 🔐 Azure RBAC
 
-A **Policy Assignment** é responsável por aplicar uma política a determinado escopo.
+O **Azure Role-Based Access Control (RBAC)** permite administrar o acesso aos recursos Azure através de funções.
 
-Uma definição de política pode existir sem estar aplicada a um ambiente específico.
-
-O assignment determina:
+O modelo pode ser representado como:
 
 ```text
-Policy Definition
-       ↓
-Policy Assignment
-       ↓
-Scope
-       ↓
-Recursos avaliados
+┌──────────────┐
+│  Identidade  │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│ Role         │
+│ Assignment   │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│ Role         │
+│ Definition   │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│    Scope     │
+└──────────────┘
 ```
 
----
+## Escopos
 
-# 🛡️ Efeitos das Políticas
-
-O Azure Policy possui diferentes efeitos que determinam o comportamento da avaliação.
-
-## Audit
-
-Utilizado principalmente para **identificar configurações não conformes** sem necessariamente bloquear a implantação.
-
-É uma boa opção para iniciar um processo de governança porque permite conhecer o impacto da regra antes de adotar controles mais restritivos.
-
-```text
-Recurso
-   ↓
-Avaliação
-   ↓
-Não conforme
-   ↓
-Registro de Compliance
-```
-
----
-
-## Deny
-
-Impede determinadas operações quando elas violam a política.
-
-```text
-Solicitação
-    ↓
-Azure Policy
-    ↓
-Viola regra?
-   ↙     ↘
- SIM      NÃO
-  ↓        ↓
-DENY     Permite
-```
-
-O uso de `Deny` deve ser planejado cuidadosamente para evitar impactos inesperados em aplicações ou equipes.
-
----
-
-## Modify
-
-Pode alterar determinadas propriedades de um recurso durante a avaliação, quando a definição e as permissões necessárias permitem essa operação.
-
-Um caso comum é auxiliar na padronização de propriedades ou tags.
-
----
-
-## DeployIfNotExists
-
-Pode executar uma implantação complementar quando determinada condição é identificada e os requisitos da política são atendidos.
-
-É útil para cenários de conformidade mais avançados.
-
----
-
-# 🔑 Azure RBAC
-
-O **Azure Role-Based Access Control (RBAC)** é utilizado para controlar **quem pode realizar determinadas ações sobre os recursos Azure**.
-
-Uma forma simples de entender RBAC é:
-
-> **Quem pode fazer o quê e em qual escopo?**
-
-O modelo envolve:
-
-```text
-Identidade
-    ↓
-Role Assignment
-    ↓
-Role Definition
-    ↓
-Scope
-```
-
-### Exemplos de funções
-
-| Função      | Conceito                                                    |
-| ----------- | ----------------------------------------------------------- |
-| Reader      | Permite visualizar recursos                                 |
-| Contributor | Permite gerenciar recursos sem administrar acessos          |
-| Owner       | Possui permissões amplas, incluindo gerenciamento de acesso |
-
-A função adequada deve sempre ser escolhida de acordo com a necessidade real.
-
----
-
-# 🔄 Azure Policy x Azure RBAC
-
-Essas duas tecnologias são complementares.
-
-| Tecnologia         | Pergunta principal                     |
-| ------------------ | -------------------------------------- |
-| Microsoft Entra ID | Quem é a identidade?                   |
-| Azure RBAC         | O que essa identidade pode fazer?      |
-| Azure Policy       | Quais regras os recursos devem seguir? |
-| Compliance         | O ambiente está seguindo essas regras? |
-
-### Exemplo
-
-Imagine uma empresa que possui uma equipe de desenvolvimento.
-
-O RBAC pode determinar:
-
-```text
-Desenvolvedor
-     ↓
-Contributor
-     ↓
-Resource Group
-```
-
-Enquanto o Azure Policy pode determinar:
-
-```text
-Todo recurso
-     ↓
-Deve possuir Environment
-     ↓
-Audit
-```
-
-Assim, uma tecnologia controla **permissões**, enquanto a outra controla **governança e conformidade**.
-
----
-
-# 🏢 Hierarquia de Gerenciamento
-
-O Azure permite organizar recursos em diferentes níveis de escopo.
+As permissões podem ser aplicadas em diferentes níveis:
 
 ```text
 Management Group
-        │
-        ▼
+       │
+       ▼
 Subscription
-        │
-        ▼
+       │
+       ▼
 Resource Group
-        │
-        ▼
+       │
+       ▼
 Resource
 ```
 
-## Management Group
+Quanto mais amplo o escopo, maior deve ser o cuidado com a atribuição.
 
-Pode organizar múltiplas assinaturas e facilitar a aplicação de políticas e governança em escala.
+### Princípio do menor privilégio
 
-## Subscription
+Uma identidade deve receber somente as permissões necessárias para realizar suas atividades.
 
-Representa uma assinatura Azure, normalmente associada a uma estrutura de cobrança e gerenciamento.
+Exemplos de funções conhecidas:
 
-## Resource Group
+* Reader
+* Contributor
+* Owner
 
-Agrupa recursos relacionados que compartilham um ciclo de vida semelhante.
-
-## Resource
-
-É o recurso individual, como:
-
-* Virtual Machine;
-* Storage Account;
-* Virtual Network;
-* Azure SQL;
-* Key Vault;
-* App Service.
+A escolha da função deve considerar a responsabilidade real da identidade.
 
 ---
 
-# 🏷️ Estratégia de Tags
+# 🛡️ Azure Policy
 
-Tags são importantes para organização, governança e análise de custos.
+O **Azure Policy** é utilizado para criar e aplicar regras de governança sobre recursos Azure.
 
-Neste laboratório, uma estratégia possível é:
+Uma política pode avaliar se os recursos estão de acordo com determinados requisitos.
+
+### Estrutura conceitual
+
+```text
+Policy Definition
+       │
+       ▼
+Policy Assignment
+       │
+       ▼
+Resource Evaluation
+       │
+       ▼
+Compliance State
+```
+
+## Policy Definition
+
+Define a regra que será avaliada.
+
+## Policy Assignment
+
+Determina onde a política será aplicada.
+
+## Compliance
+
+Representa o resultado da avaliação dos recursos dentro do escopo.
+
+---
+
+# ⚙️ Efeitos de uma Policy
+
+Entre os efeitos utilizados pelo Azure Policy estão:
+
+| Efeito              | Finalidade                                                     |
+| ------------------- | -------------------------------------------------------------- |
+| `Audit`             | Identifica configurações fora do padrão                        |
+| `Deny`              | Impede operações que violem determinada regra                  |
+| `Modify`            | Modifica determinadas propriedades quando suportado            |
+| `DeployIfNotExists` | Pode implantar configurações auxiliares em cenários suportados |
+
+### Estratégia recomendada
+
+Para novos controles de governança:
+
+```text
+Criar Policy
+     ↓
+Testar
+     ↓
+Audit
+     ↓
+Avaliar impacto
+     ↓
+Corrigir desvios
+     ↓
+Considerar controles mais restritivos
+```
+
+Começar com auditoria reduz o risco de bloquear cargas legítimas antes que o impacto da regra seja compreendido.
+
+---
+
+# 🏷️ Governança através de Tags
+
+Tags são uma ferramenta importante para organização e governança.
+
+Uma estratégia de laboratório pode utilizar:
 
 | Tag           | Exemplo     |
 | ------------- | ----------- |
@@ -311,40 +268,46 @@ Neste laboratório, uma estratégia possível é:
 | `CostCenter`  | `training`  |
 | `ManagedBy`   | `azure-cli` |
 
-### Benefícios
+As tags podem ajudar em:
 
-As tags ajudam a:
+* organização;
+* identificação de recursos;
+* análise de custos;
+* responsabilização;
+* automação;
+* governança.
 
-* identificar recursos;
-* organizar ambientes;
-* apoiar análise de custos;
-* facilitar inventário;
-* criar padrões organizacionais;
-* melhorar a governança.
-
-> **Importante:** tags não substituem RBAC, autenticação ou controles de segurança.
+> **Importante:** tags não substituem mecanismos de segurança, RBAC ou autenticação.
 
 ---
 
 # 🧪 Laboratório Prático
 
+O projeto contém scripts para automatizar as principais etapas do laboratório.
+
 ## Pré-requisitos
 
-Para executar os scripts deste projeto:
+Antes de começar:
 
-* uma assinatura Microsoft Azure;
-* Azure CLI instalada;
+* Conta Azure ativa;
+* Subscription disponível;
+* Azure CLI instalado;
 * usuário autenticado;
-* permissões suficientes no escopo utilizado;
-* terminal Bash ou ambiente compatível.
+* permissões adequadas no escopo utilizado.
 
-Autenticação:
+### Verificar instalação
+
+```bash
+az version
+```
+
+### Autenticar
 
 ```bash
 az login
 ```
 
-Verificação:
+### Verificar contexto
 
 ```bash
 az account show --output table
@@ -352,165 +315,236 @@ az account show --output table
 
 ---
 
-# 🚀 Executando o Laboratório
+# 🚀 Execução
 
-## 1. Listar políticas disponíveis
+## 1. Listar políticas
 
 ```bash
 ./scripts/listar-politicas.sh
 ```
 
-O script apresenta informações sobre definições de políticas disponíveis no ambiente.
+O script apresenta definições de políticas disponíveis no ambiente.
 
 ---
 
-## 2. Criar o laboratório
+## 2. Criar laboratório
 
 ```bash
 ./scripts/deploy-policy-lab.sh
 ```
 
-Por padrão, o laboratório utiliza:
+O script cria um Resource Group destinado ao laboratório e realiza a atribuição de uma política de auditoria relacionada a tags.
+
+Configuração padrão:
 
 ```text
 Resource Group: rg-policy-az900
-Location: eastus
 Policy: require-environment-tag
 Tag: Environment
 ```
 
-As variáveis podem ser alteradas:
+Esses valores podem ser alterados por variáveis de ambiente.
+
+Exemplo:
 
 ```bash
-RG=rg-meu-lab LOCATION=eastus ./scripts/deploy-policy-lab.sh
+RG=meu-resource-group LOCATION=eastus ./scripts/deploy-policy-lab.sh
 ```
 
 ---
 
 ## 3. Verificar conformidade
 
-Depois da implantação:
-
 ```bash
 ./scripts/check-compliance.sh
 ```
 
-Também é possível acompanhar o resultado pelo portal Azure:
+O script consulta as atribuições de Policy e tenta obter o estado de conformidade do laboratório.
+
+Também é possível acompanhar pelo:
 
 ```text
 Azure Portal
-     ↓
+   ↓
 Policy
-     ↓
+   ↓
 Compliance
 ```
 
-A avaliação das políticas pode levar algum tempo após uma atribuição ou alteração.
+---
+
+## 4. Limpeza
+
+Depois de concluir o laboratório:
+
+```bash
+./scripts/cleanup.sh
+```
+
+O script solicita uma confirmação explícita antes da exclusão.
+
+```text
+Digite DELETE para confirmar:
+```
+
+Isso reduz o risco de executar uma exclusão acidental.
 
 ---
 
 # 🔬 Cenário de Teste
 
-## Cenário 1 — Recurso sem tag
+## Cenário A — Recurso sem tag
 
-Imagine um recurso:
+Um recurso é criado sem:
 
 ```text
-Storage Account
-Environment: ❌ ausente
+Environment = lab
 ```
 
-A política deverá identificar a configuração de acordo com o efeito definido.
+A política de auditoria pode identificar a configuração como não conforme após sua avaliação.
 
 ---
 
-## Cenário 2 — Recurso com tag
+## Cenário B — Recurso com tag
 
-Agora:
+O recurso recebe:
 
 ```text
-Storage Account
-Environment: lab
+Environment = lab
 ```
 
-Após a avaliação da política, o estado de conformidade pode ser comparado com o cenário anterior.
+Após a avaliação da Policy, o estado de conformidade pode ser comparado com o cenário anterior.
 
-Esse processo permite visualizar na prática o papel do Azure Policy na governança.
+### Fluxo
+
+```text
+Recurso
+   │
+   ▼
+Azure Policy
+   │
+   ▼
+Avaliação
+   │
+   ├── Conforme
+   │
+   └── Não conforme
+```
+
+> A avaliação das políticas pode não acontecer imediatamente. Em determinados cenários é necessário aguardar a avaliação ou solicitar uma reavaliação.
 
 ---
 
-# 📊 Fluxo de Conformidade
+# 📊 Compliance
+
+A análise de conformidade é uma etapa essencial do processo de governança.
+
+O objetivo não é apenas criar políticas, mas compreender:
+
+* quais recursos estão conformes;
+* quais estão fora do padrão;
+* qual política foi aplicada;
+* qual recurso apresentou desvio;
+* qual ação corretiva deve ser tomada.
+
+### Ciclo de conformidade
 
 ```text
-                    ┌──────────────────────┐
-                    │   Policy Definition  │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │   Policy Assignment  │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │      Resource        │
-                    └──────────┬───────────┘
-                               │
-                               ▼
-                    ┌──────────────────────┐
-                    │     Evaluation       │
-                    └──────────┬───────────┘
-                               │
-                       ┌───────┴───────┐
-                       ▼               ▼
-                  Conforme        Não conforme
-                       │               │
-                       ▼               ▼
-                   Compliance       Correção
-```
-
----
-
-# 🏗️ Arquitetura
-
-A arquitetura conceitual do projeto combina identidade, controle de acesso e governança:
-
-```text
-                 ┌─────────────────────┐
-                 │  Microsoft Entra ID │
-                 │    Identidades      │
-                 └──────────┬──────────┘
-                            │
-                            ▼
-                 ┌─────────────────────┐
-                 │     Azure RBAC      │
-                 │ Permissões / Roles  │
-                 └──────────┬──────────┘
-                            │
-             ┌──────────────┴──────────────┐
-             │                             │
-             ▼                             ▼
-    ┌─────────────────┐          ┌─────────────────┐
-    │   Azure Policy  │          │  Azure Resources│
-    │ Regras / Audit  │─────────▶│ VM / Storage /  │
-    │ Compliance      │          │ SQL / Network   │
-    └─────────────────┘          └─────────────────┘
-             │
-             ▼
-    ┌─────────────────┐
-    │    Compliance   │
-    │  Governança     │
-    └─────────────────┘
+Definir requisito
+       ↓
+Criar Policy
+       ↓
+Atribuir Policy
+       ↓
+Avaliar recursos
+       ↓
+Identificar desvios
+       ↓
+Corrigir
+       ↓
+Reavaliar
 ```
 
 ---
 
-# 📁 Estrutura do Projeto
+# 🔄 Policy x RBAC
+
+Uma das principais lições deste laboratório é compreender a diferença entre os dois mecanismos.
+
+| Pergunta                                   | Tecnologia         |
+| ------------------------------------------ | ------------------ |
+| Quem é a identidade?                       | Microsoft Entra ID |
+| Quem pode executar determinada ação?       | Azure RBAC         |
+| Onde a permissão é válida?                 | RBAC Scope         |
+| Qual configuração é permitida ou desejada? | Azure Policy       |
+| O recurso está conforme?                   | Policy Compliance  |
+
+### Resumo
+
+```text
+Microsoft Entra ID
+        │
+        ▼
+     Identidade
+        │
+        ▼
+      RBAC
+        │
+        ▼
+"Quem pode fazer o quê?"
+
+             +
+
+      Azure Policy
+        │
+        ▼
+"Quais requisitos devem ser atendidos?"
+```
+
+---
+
+# 🛡️ Segurança
+
+Este projeto adota princípios fundamentais de segurança em cloud.
+
+### Menor privilégio
+
+Conceder apenas as permissões necessárias.
+
+### Escopo controlado
+
+Evitar atribuições excessivamente amplas sem necessidade.
+
+### Auditoria antes de bloqueio
+
+Avaliar o impacto de uma política antes de aplicar controles restritivos.
+
+### Separação de responsabilidades
+
+Diferenciar identidade, permissões, governança e conformidade.
+
+### Proteção de informações
+
+Nunca publicar:
+
+```text
+❌ Senhas
+❌ Tokens
+❌ Client Secrets
+❌ Chaves privadas
+❌ Credenciais
+❌ Informações confidenciais
+```
+
+---
+
+# 📂 Estrutura do Projeto
 
 ```text
 dio-gerenciando-politicas-acessos-azure/
 │
 ├── README.md
+│
 ├── .gitignore
 │
 ├── docs/
@@ -531,237 +565,156 @@ dio-gerenciando-politicas-acessos-azure/
 
 ---
 
-# ⚙️ Automação
-
-O projeto utiliza **Azure CLI** para reduzir operações manuais.
-
-### Inventário
-
-```bash
-./scripts/listar-politicas.sh
-```
-
-### Implantação
-
-```bash
-./scripts/deploy-policy-lab.sh
-```
-
-### Validação
-
-```bash
-./scripts/check-compliance.sh
-```
-
-### Limpeza
-
-```bash
-./scripts/cleanup.sh
-```
-
-A automação facilita a repetibilidade do laboratório e reduz erros durante a configuração.
-
----
-
-# 🧹 Limpeza dos Recursos
-
-Laboratórios Azure devem possuir uma estratégia de limpeza para evitar recursos esquecidos.
-
-Execute:
-
-```bash
-./scripts/cleanup.sh
-```
-
-O script exige uma confirmação explícita antes de iniciar a exclusão.
-
-> **Atenção:** confirme cuidadosamente o Resource Group antes de executar qualquer comando de exclusão.
-
----
-
-# 🛡️ Boas Práticas de Governança
-
-### 1. Começar com Audit
-
-Antes de bloquear operações, avalie o impacto da política.
-
-### 2. Utilizar menor privilégio
-
-Conceda somente as permissões necessárias.
-
-### 3. Aplicar políticas no escopo correto
-
-Evite aplicar uma política global quando o requisito é específico de um Resource Group.
-
-### 4. Documentar exceções
-
-Exceções devem possuir justificativa e escopo controlado.
-
-### 5. Monitorar Compliance
-
-A criação da política não encerra o processo. É necessário acompanhar continuamente os resultados.
-
-### 6. Padronizar tags
-
-Estabeleça uma convenção consistente para facilitar governança e custos.
-
-### 7. Testar antes de utilizar Deny
-
-Uma política muito restritiva pode impedir implantações legítimas.
-
-### 8. Automatizar
-
-Utilize Azure CLI, infraestrutura como código e processos automatizados quando apropriado.
-
----
-
-# 📸 Evidências do Laboratório
-
-Após executar o projeto em uma assinatura Azure, recomenda-se adicionar evidências reais:
-
-* [ ] Login e assinatura utilizada;
-* [ ] Resource Group;
-* [ ] Policy Definition;
-* [ ] Policy Assignment;
-* [ ] Escopo da política;
-* [ ] Estado de Compliance;
-* [ ] Recurso avaliado;
-* [ ] Teste sem tag;
-* [ ] Teste com tag;
-* [ ] Configuração de RBAC;
-* [ ] Saída dos scripts;
-* [ ] Limpeza dos recursos.
-
-### ⚠️ Segurança
-
-Antes de publicar screenshots ou logs:
-
-* remova tokens;
-* remova chaves;
-* remova senhas;
-* remova secrets;
-* oculte informações confidenciais;
-* não publique credenciais Azure.
-
----
-
-# 📚 O Que Foi Aprendido
-
-Durante o desenvolvimento deste projeto, os principais aprendizados foram:
-
-### Governança
-
-A governança fornece mecanismos para estabelecer padrões e controlar a evolução do ambiente cloud.
-
-### Azure Policy
-
-Permite automatizar avaliações de conformidade e aplicar regras organizacionais aos recursos.
-
-### RBAC
-
-Permite controlar permissões de maneira granular através de funções e escopos.
-
-### Menor privilégio
-
-Reduz a superfície de risco ao evitar permissões maiores que as necessárias.
-
-### Compliance
-
-Permite acompanhar se os recursos estão seguindo as regras estabelecidas.
-
-### Automação
-
-Azure CLI torna o laboratório reproduzível e facilita operações administrativas.
-
----
-
-# 💼 Aplicação em Cenários Reais
-
-Os conceitos deste laboratório podem ser aplicados em organizações que precisam:
-
-* padronizar recursos Azure;
-* controlar configurações;
-* atender requisitos de conformidade;
-* limitar permissões;
-* controlar ambientes de desenvolvimento;
-* melhorar governança;
-* reduzir configurações inconsistentes;
-* automatizar processos;
-* estabelecer políticas corporativas.
-
-Um ambiente corporativo pode evoluir de:
-
-```text
-Configuração manual
-        ↓
-Políticas de auditoria
-        ↓
-Monitoramento de Compliance
-        ↓
-Correções automatizadas
-        ↓
-Controles preventivos
-        ↓
-Governança em escala
-```
-
----
-
-# 🧠 Conclusão
-
-O laboratório demonstra que segurança e governança no Azure não dependem de uma única ferramenta.
-
-Uma arquitetura bem estruturada combina:
-
-```text
-Microsoft Entra ID
-        +
-Azure RBAC
-        +
-Azure Policy
-        +
-Tags
-        +
-Compliance
-        +
-Monitoramento
-        +
-Automação
-```
-
-Enquanto o **Microsoft Entra ID** trabalha com identidades, o **Azure RBAC** controla permissões e o **Azure Policy** estabelece e avalia regras de governança.
-
-A combinação desses mecanismos permite construir ambientes Azure mais **organizados, previsíveis, seguros e alinhados às necessidades da organização**.
-
----
-
 # 📚 Documentação Complementar
 
-* [Azure Policy](docs/azure-policy.md)
-* [Azure RBAC](docs/rbac.md)
-* [Governança](docs/governanca.md)
-* [Checklist do laboratório](docs/checklist.md)
+| Documento                                 | Conteúdo                                  |
+| ----------------------------------------- | ----------------------------------------- |
+| [`azure-policy.md`](docs/azure-policy.md) | Conceitos e funcionamento do Azure Policy |
+| [`rbac.md`](docs/rbac.md)                 | Controle de acesso e menor privilégio     |
+| [`governanca.md`](docs/governanca.md)     | Estratégias de governança e conformidade  |
+| [`checklist.md`](docs/checklist.md)       | Checklist de execução e evidências        |
 
 ---
 
-# 🔗 Referências
+# 📸 Evidências
+
+Para transformar o laboratório em uma documentação completa de execução, recomenda-se adicionar evidências reais, como:
+
+* Policy Assignment;
+* Policy Definition;
+* Compliance;
+* Resource Group;
+* recurso avaliado;
+* configurações de tags;
+* saída dos scripts;
+* RBAC;
+* resultado dos testes.
+
+### Exemplo de organização
+
+```text
+docs/
+└── evidencias/
+    ├── 01-policy-assignment.png
+    ├── 02-compliance.png
+    ├── 03-resource-tags.png
+    └── 04-rbac.png
+```
+
+> As imagens devem representar somente recursos e resultados realmente executados.
+
+---
+
+# 📈 Possíveis Evoluções
+
+Este laboratório pode ser expandido para cenários mais próximos de ambientes corporativos.
+
+### Próximos passos
+
+* Criar iniciativas com múltiplas políticas;
+* Utilizar políticas customizadas;
+* Trabalhar com Management Groups;
+* Integrar Azure Policy com Azure Resource Graph;
+* Automatizar compliance;
+* Integrar governança com CI/CD;
+* Utilizar Azure Policy as Code;
+* Integrar processos de FinOps;
+* Criar dashboards de conformidade;
+* Implementar políticas de segurança mais avançadas.
+
+---
+
+# 🧠 Principais Aprendizados
+
+Durante o desenvolvimento deste projeto, os principais conceitos consolidados foram:
+
+### Governança não é apenas segurança
+
+Ela envolve organização, padronização, conformidade, custos, responsabilidades e controle.
+
+### RBAC e Policy possuem funções diferentes
+
+RBAC controla **permissões**.
+
+Policy controla **requisitos e conformidade**.
+
+### Escopo é fundamental
+
+Uma política ou permissão pode ter impacto muito diferente dependendo de onde é aplicada.
+
+### Auditoria é uma etapa importante
+
+Antes de bloquear configurações, é importante entender o impacto da regra.
+
+### Automação aumenta a consistência
+
+Scripts Azure CLI permitem repetir processos de forma padronizada.
+
+---
+
+# 🧩 Competências Demonstradas
+
+```text
+Cloud Computing
+      │
+      ├── Azure Governance
+      │
+      ├── Azure Policy
+      │
+      ├── Azure RBAC
+      │
+      ├── Identity & Access
+      │
+      ├── Compliance
+      │
+      ├── Security
+      │
+      └── Azure CLI
+```
+
+---
+
+# 📝 Conclusão
+
+O projeto **Gerenciando Políticas em Acessos Azure** demonstra como mecanismos de identidade, controle de acesso e governança podem trabalhar de forma complementar dentro de uma arquitetura Azure.
+
+A combinação de **Microsoft Entra ID, Azure RBAC e Azure Policy** permite construir uma abordagem estruturada para controlar identidades, limitar permissões, estabelecer padrões e acompanhar a conformidade dos recursos.
+
+Mais do que simplesmente configurar uma política, o laboratório reforça um processo contínuo:
+
+> **Definir → Aplicar → Avaliar → Corrigir → Monitorar → Evoluir**
+
+Esse ciclo é fundamental para ambientes cloud que precisam equilibrar **segurança, governança, conformidade, produtividade e escalabilidade**.
+
+---
+
+# 📖 Referências
 
 * Microsoft Learn — Azure Policy
-* Microsoft Learn — Azure Role-Based Access Control
+* Microsoft Learn — Azure RBAC
 * Microsoft Learn — Azure Governance
 * Microsoft Learn — Microsoft Entra ID
 * Microsoft Learn — Azure CLI
+* Formação Microsoft Azure – AZ-900 Certification — DIO
 
 ---
 
-# 👨‍💻 Projeto
+# 👨‍💻 Autor
 
-**Desafio:** Gerenciando Políticas em Acessos Azure
-**Formação:** Microsoft Azure – AZ-900 Certification
-**Plataforma:** DIO
-**Tecnologias:** Microsoft Azure • Azure Policy • Azure RBAC • Microsoft Entra ID • Azure CLI • Bash
+**Larwargrjr**
+
+Projeto desenvolvido como parte da formação:
+
+**Microsoft Azure – AZ-900 Certification**
 
 ---
 
-<p align="center">
-  Desenvolvido como projeto prático de estudos em Microsoft Azure ☁️
+<div align="center">
+
+### ☁️ Azure Governance Lab
+
+**Governança • Segurança • Identidade • Compliance • Automação**
+
+⭐ Se este projeto foi útil para seus estudos, considere deixar uma estrela no repositório.
+
+</div>
